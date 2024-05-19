@@ -1,6 +1,8 @@
 const { Initative } = require("../DataBase/Schema/initative");
 const { User } = require("../DataBase/Schema/userschema");
 const mongoose = require("mongoose");
+const { ObjectId } = require("mongodb");
+
 // Create Initative
 const createInitaive = async (req, res) => {
   const { description, userid, username, title } = req.body;
@@ -125,11 +127,12 @@ const getunJoinedInitative = async (req, res) => {
   const id = req.body.userid;
   const user = await User.findById(id);
   const arr = user.joinedintiative;
+  const objectid = ObjectId.createFromHexString(id);
   const initative = await Initative.aggregate([
     {
       $match: {
         userid: {
-          $ne: id,
+          $ne: objectid,
         },
         _id: {
           $nin: arr,

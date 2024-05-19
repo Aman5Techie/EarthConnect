@@ -9,6 +9,7 @@ const connectDB = async ()=>{
         console.log(error);
         process.exit(0);
     }
+    
 }
 
 connectDB().then(()=>{
