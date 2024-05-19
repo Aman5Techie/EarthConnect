@@ -27,7 +27,7 @@ export function Ownintitaivecard({ obj, deleteobj, val }) {
         <img
           src={`data:image/jpg;base64,${obj.image}`}
           alt="card-image"
-          className="w-80 h-80 object-cover"
+          className="w-full h-80 object-cover"
         />
       </CardHeader>
       <CardBody>

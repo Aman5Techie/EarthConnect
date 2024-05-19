@@ -18,6 +18,7 @@ import { signup } from "../../route";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/userinfo/userinfoSlice";
+import { toast } from "react-toastify";
 
 function Copyright(props) {
   return (
@@ -83,7 +84,10 @@ export default function SignUp() {
       const userData = data.user;
       dispatch(setUser(userData));
       localStorage.setItem("authorization", ` Bearer ${token}`);
+      toast.success("Logged in successfully")
       navigate("/post");
+    }else{
+      toast.error("Logged Out")
     }
   };
 

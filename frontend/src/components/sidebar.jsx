@@ -5,25 +5,17 @@ import {
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
 } from "@material-tailwind/react";
 import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
+
   UserCircleIcon,
-  Cog6ToothIcon,
   InboxIcon,
-  PowerIcon,
 } from "@heroicons/react/24/solid";
-import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar({setpage}) {
   const [open, setOpen] = React.useState(0);
-
+  const navigate = useNavigate();
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
@@ -53,18 +45,13 @@ export default function Sidebar({setpage}) {
             />
           </ListItemSuffix> */}
         </ListItem>
-        <ListItem  className="text-lg">
+        <ListItem  onClick={()=>{navigate("/profile")}}  className="text-lg">
           <ListItemPrefix>
             <UserCircleIcon className="h-7 w-7" />
           </ListItemPrefix>
           Profile
         </ListItem>
-        <ListItem  className="text-lg">
-          <ListItemPrefix>
-            <Cog6ToothIcon className="h-7 w-7" />
-          </ListItemPrefix>
-          Settings
-        </ListItem>
+      
         {/* <ListItem className="text-lg">
           <ListItemPrefix>
             <PowerIcon className="h-7 w-7" />

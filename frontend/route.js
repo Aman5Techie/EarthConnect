@@ -1,6 +1,8 @@
-const userroute = "http://localhost:3000/api/v1/user";
-const postroute = "http://localhost:3000/api/v1/post";
-const initativeroute = "http://localhost:3000/api/v1/initative";
+const mainroute = "https://earthconnect.onrender.com";
+
+const userroute = `${mainroute}/api/v1/user`;
+const postroute = `${mainroute}/api/v1/post`;
+const initativeroute = `${mainroute}/api/v1/initative`;
 
 const signup = `${userroute}/signup`;
 const checktoken = `${userroute}/checktoken`;

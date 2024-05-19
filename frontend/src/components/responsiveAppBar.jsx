@@ -23,7 +23,7 @@ const pages = [
   "Manage Initative",
   "Posts",
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Logout"];
 const navigateroute = ["/allintiative", "/joinedintiative", "/manage", "/post"];
 
 function ResponsiveAppBar() {
@@ -47,7 +47,7 @@ function ResponsiveAppBar() {
       }
     };
     validatetoken();
-  }, [location.pathname,userdata]);
+  }, [location.pathname, userdata]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -62,11 +62,13 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseUserMenu = (index) => {
-    if (index == 3) {
+    if (index == 1) {
       localStorage.removeItem("authorization");
       dispatch(setUser({}));
       setsignin(false);
       navigate("/signin");
+    } else if (index == 0) {
+      navigate("/profile");
     }
     setAnchorElUser(null);
   };
@@ -80,7 +82,6 @@ function ResponsiveAppBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -91,7 +92,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            EARTHCONNECT
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

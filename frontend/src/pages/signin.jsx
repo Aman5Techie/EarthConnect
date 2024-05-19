@@ -17,6 +17,7 @@ import axios from "axios";
 import { checktoken, signin } from "../../route";
 import { useDispatch } from "react-redux";
 import { setLoading ,setUser} from "../features/userinfo/userinfoSlice";
+import { toast } from "react-toastify";
 
 function Copyright(props) {
   return (
@@ -76,6 +77,9 @@ export default function SignInSide() {
       dispatch(setUser(userData));
       localStorage.setItem("authorization", `Bearer ${data.token}`);
       navigate("/post");
+      toast.success("Logged in ")
+    }else{
+      toast.error("Cannot logged in ")
     }
   
   };

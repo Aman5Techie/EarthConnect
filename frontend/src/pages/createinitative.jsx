@@ -28,7 +28,6 @@ const CreateInitative = () => {
         { headers: { authorization: token } }
       );
       if (!data.status) {
-        console.log("here2");
         navigate("/signin");
         localStorage.removeItem("authorization");
         return;
